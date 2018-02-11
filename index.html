@@ -15,7 +15,7 @@
             margin-top: 30px;
         }
 
-        p {
+        #answer {
             font-size: 180%;
             margin-top: 160px;
         }
@@ -26,7 +26,9 @@
     <h2>Which movie is this from?</h2>
     <h5>Press any key to get started!</h5>
     <p id="answer"><span id="f">_</span> <span id="a">_</span> <span id="r">_</span> <span id="g">_</span> <span id="o">_</span></p>
-    <p id="guesses">Incorrect guesses: <span id="incorrect">0</span></p>
+    <p id="guesses">Incorrect guesses: <span id="incorrect">3</span></p>
+    <h4>Letters already guessed:</h4>
+    <p id="letters"></p>
     
     <script type="text/javascript">
     document.onkeyup = function(event) {
@@ -48,7 +50,9 @@
             document.getElementById("o").innerHTML = "o";
         }
         else {
-            document.getElementById("incorrect").innerHTML = parseInt(document.getElementById('incorrect').innerHTML) + 1;
+            document.getElementById("incorrect").innerHTML = parseInt(document.getElementById('incorrect').innerHTML) - 1;
+            document.getElementById("letters").innerHTML = a;
+            
         } 
         }
     </script>
