@@ -4,21 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #guesses {margin-top: 60px;}
+
+        h5 {
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 180%;
+            margin-top: 160px;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
-    <h2>Press any key to get started!</h2>
-    <p id="answer">_ _ _ _ <br>_ _ _<br> _ _ _ _ _ _ <br>_ _ _<br> _ _ _<br> _ _ _ _ _ _ _</p>
+    <h2>Which movie is this from?</h2>
+    <h5>Press any key to get started!</h5>
+    <p id="answer"><span id="f">_</span> <span id="a">_</span> <span id="r">_</span> <span id="g">_</span> <span id="o">_</span></p>
+    <p id="guesses">Incorrect guesses: <span id="incorrect">0</span></p>
+    
     <script type="text/javascript">
     document.onkeyup = function(event) {
         var a = event.key;
-        var answer = "When the Angels win the pennant";
-        if (a === "w") {
-          var b = document.getElementById("answer").str.slice(0, 0);
-          b.innerHTML = "w";
-
+        
+        if (a === "f") {
+            document.getElementById("f").innerHTML = "F";
         }
-    }
+        else if (a === "a") {
+            document.getElementById("a").innerHTML = "a";
+        }
+        else if (a === "r") {
+            document.getElementById("r").innerHTML = "r";
+        }
+        else if (a === "g") {
+            document.getElementById("g").innerHTML = "g";
+        }
+        else if (a === "o") {
+            document.getElementById("o").innerHTML = "o";
+        }
+        else {
+            document.getElementById("incorrect").innerHTML = parseInt(document.getElementById('incorrect').innerHTML) + 1;
+        } 
+        }
     </script>
 </body>
 </html>
