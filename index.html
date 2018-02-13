@@ -17,7 +17,22 @@
 
         #answer {
             font-size: 180%;
-            margin-top: 160px;
+            margin-top: 80px;
+            }   
+
+        #betcha {
+            visibility: hidden;
+            float: left;
+        }
+
+        #police {
+            visibility: hidden;
+            float: right;
+        }
+
+        #clips {
+            padding-left: 45px;
+            padding-right: 45px;
         }
     </style>
     <title>Document</title>
@@ -26,35 +41,61 @@
     <h2>Which movie is this from?</h2>
     <h5>Press any key to get started!</h5>
     <p id="answer"><span id="f">_</span> <span id="a">_</span> <span id="r">_</span> <span id="g">_</span> <span id="o">_</span></p>
-    <p id="guesses">Incorrect guesses: <span id="incorrect">3</span></p>
+    <p id="guesses">Incorrect guesses: <span id="incorrect">5</span></p>
     <h4>Letters already guessed:</h4>
     <p id="letters"></p>
-    
+    <div id="clips">
+    <div id="betcha"><iframe width="330" height="315" src="https://www.youtube.com/embed/fv9XtSiqEDA?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    <div id="police"><iframe width="330" height="315" src="https://www.youtube.com/embed/MDxEvdICKnw?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+    </div>
     <script type="text/javascript">
+
     document.onkeyup = function(event) {
-        var a = event.key;
+        var k = event.key;
+        var f = document.getElementById("f").innerHTML;
+        var a = document.getElementById("a").innerHTML;
+        var r = document.getElementById("r").innerHTML;
+        var g = document.getElementById("g").innerHTML;
+        var o = document.getElementById("o").innerHTML;
+
         
-        if (a === "f") {
+        if (k === "f") {
             document.getElementById("f").innerHTML = "F";
         }
-        else if (a === "a") {
+        else if (k === "a") {
             document.getElementById("a").innerHTML = "a";
         }
-        else if (a === "r") {
+        else if (k === "r") {
             document.getElementById("r").innerHTML = "r";
         }
-        else if (a === "g") {
+        else if (k === "g") {
             document.getElementById("g").innerHTML = "g";
+            
         }
-        else if (a === "o") {
+        else if (k === "o") {
             document.getElementById("o").innerHTML = "o";
+            document.getElementById("betcha").style.visibility = "visible";
         }
         else {
             document.getElementById("incorrect").innerHTML = parseInt(document.getElementById('incorrect').innerHTML) - 1;
-            document.getElementById("letters").innerHTML = a;
-            
+            document.getElementById("letters").innerHTML = k;
         } 
         }
+
+          document.addEventListener("keypress", gameOver);
+    function gameOver() {
+    if (document.getElementById("incorrect").innerHTML == 1) {
+        document.getElementById("police").style.visibility = "visible";
+    }
+    }
+    
+   if (document.getElementById("answer").innerHTML == "Fargo") {
+            document.getElementById("betcha").style.visibility = "visible";
+            
+        }
+        
     </script>
+   
+   
 </body>
 </html>
