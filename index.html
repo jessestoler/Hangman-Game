@@ -20,20 +20,6 @@
             margin-top: 80px;
             }   
 
-        #betcha {
-            visibility: hidden;
-            float: left;
-        }
-
-        #police {
-            visibility: hidden;
-            float: right;
-        }
-
-        #clips {
-            padding-left: 45px;
-            padding-right: 45px;
-        }
     </style>
     <title>Document</title>
 </head>
@@ -44,10 +30,8 @@
     <p id="guesses">Incorrect guesses: <span id="incorrect">5</span></p>
     <h4>Letters already guessed:</h4>
     <p id="letters"></p>
-    <div id="clips">
-    <div id="betcha"><iframe width="330" height="315" src="https://www.youtube.com/embed/fv9XtSiqEDA?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-    <div id="police"><iframe width="330" height="315" src="https://www.youtube.com/embed/MDxEvdICKnw?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-    </div>
+    <iframe id="video" width="330" height="315" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+   
     <script type="text/javascript">
 
     document.onkeyup = function(event) {
@@ -74,7 +58,7 @@
         }
         else if (k === "o") {
             document.getElementById("o").innerHTML = "o";
-            document.getElementById("betcha").style.visibility = "visible";
+            
         }
         else {
             document.getElementById("incorrect").innerHTML = parseInt(document.getElementById('incorrect').innerHTML) - 1;
@@ -85,15 +69,15 @@
           document.addEventListener("keypress", gameOver);
     function gameOver() {
     if (document.getElementById("incorrect").innerHTML == 1) {
-        document.getElementById("police").style.visibility = "visible";
+        document.getElementById("video").setAttribute("src", "https://www.youtube.com/embed/MDxEvdICKnw?rel=0&autoplay=1");
     }
     }
+   
+    if (document.getElementById("answer").innerHTML == "Fargo") {
+            document.getElementById("video").setAttribute("src", "https://www.youtube.com/embed/fv9XtSiqEDA?rel=0&autoplay=1");
     
-   if (document.getElementById("answer").innerHTML == "Fargo") {
-            document.getElementById("betcha").style.visibility = "visible";
-            
         }
-        
+    
     </script>
    
    
