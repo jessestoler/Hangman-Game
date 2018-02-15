@@ -18,7 +18,7 @@
 
         #answer {
             font-size: 180%;
-            margin-top: 80px;
+            margin-top: 50px;
             }   
 
     </style>
@@ -73,14 +73,17 @@
     function gameOver() {
     if (document.getElementById("incorrect").innerHTML == 1) {
         document.getElementById("video").setAttribute("src", "https://www.youtube.com/embed/MDxEvdICKnw?rel=0&autoplay=1");
+        document.getElementById("answer").innerHTML = "Game Over";
     }
+    
     }
+  
+  
+    
+       if (document.getElementById("o").innerHTML == "o") {
+    document.getElementById("video").setAttribute("src", "https://www.youtube.com/embed/fv9XtSiqEDA?rel=0&autoplay=1");
+       }
    
-    if (document.getElementById("answer").innerHTML == "Fargo") {
-            document.getElementById("video").setAttribute("src", "https://www.youtube.com/embed/fv9XtSiqEDA?rel=0&autoplay=1");
-    
-        }
-    
     </script>
    
    
