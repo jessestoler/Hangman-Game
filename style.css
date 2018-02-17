@@ -1,0 +1,15 @@
+body {
+    background-color: red;
+    text-align: center;
+}
+
+#guesses {margin-top: 60px;}
+
+h5 {
+    margin-top: 30px;
+}
+
+#answer {
+    font-size: 180%;
+    margin-top: 50px;
+    }
